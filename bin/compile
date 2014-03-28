@@ -323,7 +323,9 @@ deb http://archive.ubuntu.com/ubuntu raring universe
 deb http://archive.ubuntu.com/ubuntu raring-updates universe
 EOT
 
-# sudo apt-get build-dep imagemagick
+sudo apt-get update
+
+sudo apt-get build-dep imagemagick
 
 fetch_engine_package php "$PHP_VERSION" /app/vendor/php | indent
 
