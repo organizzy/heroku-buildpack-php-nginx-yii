@@ -110,7 +110,16 @@ function install_composer_deps() {
 
     php "vendor/composer/bin/composer.phar" self-update
 
-
+    status "Installing application dependencies with Composer"
+    {
+        cd "$target"
+        php "vendor/composer/bin/composer.phar" install \
+            --prefer-dist \
+            --optimize-autoloader \
+            --no-interaction \
+            --no-dev
+        cd "$cwd"
+    } | indent
 }
 
 function install_node_deps() {
