@@ -27,6 +27,7 @@ case "$1" in
         ;;
     compile)
         echo "-----> Setting up Yii app"
-        cp "$basedir/../conf/nginx/yii.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
+        # cp "$basedir/../conf/nginx/yii.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
+        cp "$basedir/../conf/nginx/default_site.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
         ;;
 esac
