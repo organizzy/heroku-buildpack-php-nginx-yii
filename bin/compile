@@ -315,6 +315,14 @@ status "Bundling PHP ${PHP_VERSION}"
 fetch_package "libicu-51" /app/vendor/libicu > /dev/null
 fetch_package "libmcrypt-${MCRYPT_VERSION}" /app/vendor/libmcrypt > /dev/null
 
+cat > "/etc/apt/sources.list" <<EOT
+deb http://archive.ubuntu.com/ubuntu raring main
+deb http://archive.ubuntu.com/ubuntu raring-updates main
+deb http://security.ubuntu.com/ubuntu raring-security main
+deb http://archive.ubuntu.com/ubuntu raring universe
+deb http://archive.ubuntu.com/ubuntu raring-updates universe
+EOT
+
 sudo apt-get build-dep imagemagick
 
 fetch_engine_package php "$PHP_VERSION" /app/vendor/php | indent
