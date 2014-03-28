@@ -17,7 +17,8 @@ case "$1" in
             exit 1
         fi
 
-        if sets_framework_yii; then
+        if requires_yii || sets_framework_yii; then
+            chmod 777 /app/protected/runtime
             echo "-----> Detected Yii app"
             exit 0
         else
