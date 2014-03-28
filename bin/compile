@@ -315,6 +315,8 @@ status "Bundling PHP ${PHP_VERSION}"
 fetch_package "libicu-51" /app/vendor/libicu > /dev/null
 fetch_package "libmcrypt-${MCRYPT_VERSION}" /app/vendor/libmcrypt > /dev/null
 
+sudo apt-get build-dep imagemagick
+
 fetch_engine_package php "$PHP_VERSION" /app/vendor/php | indent
 
 test ! -d ".profile.d" && mkdir -p .profile.d || true
