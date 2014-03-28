@@ -361,6 +361,7 @@ done
 
 # Detect PHP framework
 for f in "$basedir/../frameworks/"*; do
+    echo $f | indent
     if "$f" detect "$BUILD_DIR"; then
         FRAMEWORK="$f"
     fi
