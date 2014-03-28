@@ -450,8 +450,6 @@ erb conf/site.conf.erb > /app/vendor/nginx/conf/site.conf
     \$pmsgr < "nginx"
 )&
 
-sudo chown www-data /app/protected/runtime
-sudo chmod -R 777 /app/protected/runtime
 
 read exitproc <\$pmsgr
 echo "Boot failed: \$exitproc"

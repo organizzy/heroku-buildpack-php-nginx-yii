@@ -19,7 +19,6 @@ case "$1" in
 
         if requires_yii || sets_framework_yii; then
             echo "-----> Detected Yii app"
-            ls -l /app/protected
             exit 0
         else
             exit 1
@@ -27,7 +26,7 @@ case "$1" in
         ;;
     compile)
         echo "-----> Setting up Yii app"
-        # cp "$basedir/../conf/nginx/yii.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
-        cp "$basedir/../conf/nginx/default_site.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
+        cp "$basedir/../conf/nginx/yii.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
+        # cp "$basedir/../conf/nginx/default_site.conf.erb" "$BUILD_DIR/conf/site.conf.erb"
         ;;
 esac
