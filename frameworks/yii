@@ -18,8 +18,9 @@ case "$1" in
         fi
 
         if requires_yii || sets_framework_yii; then
-            sudo chown www-data /app/protected/runtime
             echo "-----> Detected Yii app"
+            sudo chown nobody /app/protected/runtime
+            ls -l /app/protected
             exit 0
         else
             exit 1
