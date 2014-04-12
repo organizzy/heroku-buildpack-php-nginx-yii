@@ -1,5 +1,16 @@
 # Attempt the uri, uri+/, then fall back to yii's index.php with args included
 # Note: old examples use IF statements, which nginx considers evil, this approach is more widely supported
+
+# Default configuration for non-framework apps
+root /app/<%= ENV['DOCUMENT_ROOT'] %>;
+
 location / {
     try_files $uri $uri/ /index.php?$args;
+}
+
+location ~ \.php {
+    include fastcgi_params;
+    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+    fastcgi_pass php;
+    fastcgi_buffers 256 4k;
 }
